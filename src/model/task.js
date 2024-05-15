@@ -1,6 +1,8 @@
 const {sequelize} = require('../dbConfig')
 const {DataTypes} = require('sequelize')
 
+//create a table named Task
+
 const Task = sequelize.define('Task',{
     userId:{
         type:DataTypes.INTEGER,
@@ -27,6 +29,7 @@ const Task = sequelize.define('Task',{
 
 })
 
-Task.sync({alter:true});
+//create a table if it is does'nt exist
+Task.sync();
 
 module.exports = Task;

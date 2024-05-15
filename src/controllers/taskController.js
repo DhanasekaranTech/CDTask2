@@ -1,19 +1,30 @@
 const Task = require('../model/task')
 
+
+//add task to the table
 exports.createTask = async(req,res)=>{
 
-try{
     const {content, description, isComplete} = req.body;
-const newTask = await Task.create({content, description, isComplete})
- res.status(201).json(newTask);
+    if(content && description && isComplete !==""){
 
-}catch(err){
- console.log('error in creating task :',error);
- res.status(500)
+        try{
+        const newTask = await Task.create({content, description, isComplete})
+         res.status(201).json(newTask);
+        
+        }catch(err){
+         console.log('error in creating task :',error);
+         res.status(500)
+        }
+    }else{
+        console.log("dont keep input null");
+res.status(201).json({message:"dont keep input null"})
+    }
+
+
+
 }
 
-
-}
+//get all the tasks form table
 exports.getAllTask = async(req,res)=>{
 
     try{
@@ -27,6 +38,8 @@ exports.getAllTask = async(req,res)=>{
     
     }
     
+
+    //get a task from table using userId 
 exports.getTaskById = async(req,res)=>{
 
         try{
@@ -44,6 +57,8 @@ exports.getTaskById = async(req,res)=>{
         }
         
         }
+
+        //delete task by userId
 exports.deleteTaskById = async(req,res)=>{
 
         try{
@@ -61,6 +76,7 @@ exports.deleteTaskById = async(req,res)=>{
             }
             
       }
+      //update task
         
       exports.updateTaskById = async(req,res)=>{
 
@@ -86,6 +102,7 @@ exports.deleteTaskById = async(req,res)=>{
             }
             
       } 
+      //update field in table
       exports.updateFieldInTask = async(req,res)=>{
 
         try{
