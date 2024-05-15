@@ -12,7 +12,7 @@ exports.createTask = async(req,res)=>{
          res.status(201).json(newTask);
         
         }catch(err){
-         console.log('error in creating task :',error);
+         console.log('error in creating task :',error);Task
          res.status(500)
         }
     }else{

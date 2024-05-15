@@ -9,7 +9,7 @@ const sequelize = new Sequelize('nodeTask','root','',{
 
 //check whether database is connected successfully or not
 
-const chekDbConnect = async()=>{
+const checkDbConnect = async()=>{
     try{
         await sequelize.authenticate();
         console.log('db connected successfully')
@@ -20,4 +20,4 @@ const chekDbConnect = async()=>{
 }
 
 //exports 
-module.exports = {sequelize,chekDbConnect}
+module.exports = {sequelize,checkDbConnect}
