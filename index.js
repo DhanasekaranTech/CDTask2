@@ -4,7 +4,7 @@ const body_parser = require('body-parser')
 const TaskRouter = require('./src/router/TaskRoutes') 
 const {sequelize,checkDbConnect, chekDbConnect} = require('./src/dbConfig')
 
-const PORT = 2003;
+const PORT = 2403;
 
 app.use(body_parser.json());
 
